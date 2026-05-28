@@ -24,11 +24,15 @@ public class IntakeSubsystem extends SubsystemBase{
     public TalonFX intakeSpinny;
     public SparkMax leftIntake;
     public SparkMax rightIntake;
-    public Encoder intakEncoder;
+    public DutyCycleEncoder intakeEncoder;
     public double intakeEncoderValue;
 
     
     public IntakeSubsystem() {
-        
+        leftIntake = new SparkMax(Constants.IntakeConstants.leftIntakeID, MotorType.kBrushless);
+        rightIntake = new SparkMax(Constants.IntakeConstants.rightIntakeID, MotorType.kBrushless);
+        intakeSpinny = new TalonFX(Constants.IntakeConstants.intakeSpinnyID);
+        intakeEncoder = new DutyCycleEncoder(Constants.IntakeConstants.intakeEncoderID);
+
     }
 }

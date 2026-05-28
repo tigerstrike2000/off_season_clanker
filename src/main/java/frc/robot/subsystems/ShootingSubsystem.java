@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.revrobotics.spark.SparkMax;
 
 import edu.wpi.first.math.controller.ElevatorFeedforward;
 import edu.wpi.first.math.controller.PIDController;
@@ -13,6 +14,7 @@ import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
@@ -23,9 +25,18 @@ public class ShootingSubsystem extends SubsystemBase{
     public TalonFX spinnyWheelsLeft;
     public TalonFX spinnyWheelsRight;
     public TalonFX feedWheels;
+    public SparkMax hoodMover;
     public Encoder hoodEncoder;
+    public PIDController hoodPID;
     public double hoodEncoderValue;
+
     public ShootingSubsystem() {
+        spinnyWheelsLeft = new TalonFX(Constants.ShootingConstants.spinnyWheelsLeftID);
+        spinnyWheelsRight = new TalonFX(Constants.ShootingConstants.spinnyWheelsRightID);
+        feedWheels = new TalonFX(Constants.ShootingConstants.feedWheelsID);
+        hoodMover = new SparkMax(Constants.ShootingConstants.hoodMoverID, MotorType.kBrushless);
+        hoodEncoder = new Encoder(Constants.ShootingConstants.hoodEncoder_A, Constants.ShootingConstants.hoodEncoder_B);
+        
 
     }
 }

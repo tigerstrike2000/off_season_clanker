@@ -20,4 +20,20 @@ public final class Constants {
   }
   public static final int DriverID = 0;
   public static final int OperatorID = 1;
+  public static final String Shooting = null;
+
+  public static final class ShootingConstants{
+    public static final int spinnyWheelsLeftID = 19;
+    public static final int spinnyWheelsRightID = 18;
+    public static final int feedWheelsID = 7;
+    public static final int hoodMoverID = 24;
+    public static final int hoodEncoder_A = 9;
+    public static final int hoodEncoder_B = 8;
+  }
+  public static final class IntakeConstants{
+    public static final int leftIntakeID = 20;
+    public static final int rightIntakeID = 21;
+    public static final int intakeSpinnyID = 6;
+    public static final int intakeEncoderID = 0;
+  }
 }
